@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memoria - Juego de Memoria Inmobiliaria
 
-## Getting Started
+Juego de memoria desarrollado con React + Vite + TypeScript + Tailwind CSS.
 
-First, run the development server:
+## Características del Proyecto
+
+- **Stack**: React 19 + Vite 6 + TypeScript + Tailwind CSS v4
+- **Gestión de estado**: Zustand
+- **Responsivo**: Diseño adaptativo para diferentes tamaños de pantalla
+- **Dos niveles**: Nivel 1 y Nivel 2 con diferenciación visual
+- **Sistema de juego**: 
+  - 24 cards (12 pares)
+  - 6 pares con imagen + 6 pares con icono
+  - Modal de victoria con opción de siguiente nivel
+  - Modal de derrota con reinicio
+
+## Requisitos
+
+- Node.js 18+ 
+- npm
+
+## Instalación
+
+```bash
+npm install
+```
+
+## Levantar el proyecto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El proyecto se abrirá en: http://localhost:5173
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Construir para producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Estructura del proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── assets/images/    # Imágenes del proyecto
+├── components/      # Componentes de React
+│   ├── Card/
+│   ├── Controls/
+│   ├── GameBoard/
+│   ├── Header/
+│   ├── Modal/
+│   ├── Timer/
+│   └── AttemptsCounter/
+├── store/           # Estado con Zustand
+├── types/           # Tipos TypeScript
+├── App.tsx          # Componente principal
+├── main.tsx         # Punto de entrada
+└── index.css        # Estilos globales
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Imágenes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Colocar las imágenes en la carpeta `public/images/`
 
-## Deploy on Vercel
+## Reglas del juego
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Nivel 1: 12 pares (6 con imagen + 6 con icono)
+- Nivel 2: Mismo contenido con filtro diferenciado
+- Tiempo: 80 segundos
+- Intentos: 30
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Buenas Prácticas de Desarrollo
+
+### TypeScript
+- ✅ Usar tipos explícitos para props y funciones
+- ✅ Definir interfaces en `src/types/`
+- ✅ Evitar `any`, usar `unknown` si es necesario
+
+### React
+- ✅ Componentes funcionales con arrow functions o function declaration
+- ✅ Props tipadas con TypeScript
+- ✅ Usar `useEffect` solo cuando sea necesario (efectos secundarios)
+- ✅ Los componentes deben ser pequeños y reutilizables
+
+### Zustand (Gestión de Estado)
+- ✅ Estado global en `src/store/useGameStore.ts`
+- ✅ Tipar el estado con interfaces
+- ✅ Usar actions para modificar el estado
+
+### Tailwind CSS
+- ✅ Clases utilitarias para estilos
+- ✅ Diseño responsivo con breakpoints (`sm:`, `md:`, `lg:`)
+- ✅ Evitar estilos inline, usar clases de Tailwind
+
+### Estructura de Archivos
+- ✅ Un componente por archivo
+- ✅ Nombrar archivos en PascalCase (ej: `GameBoard.tsx`)
+- ✅ Exports nombrados para tipos
+- ✅ Imports relativos para archivos locales (`../../types`)
+
+### Imágenes
+- ✅ Imágenes en carpeta `public/` para acceso público
+- ✅ Usar rutas relativas desde `public/`
+
+### Git
+- ✅ Commits descriptivos
+- ✅ No hacer commit de `node_modules/`
+- ✅ No hacer commit de archivos sensibles (`.env`)
+
+### Generales
+- ✅ Código limpio y legible
+- ✅ Evitar código comentado innecesario
+- ✅ Mantener el código DRY (Don't Repeat Yourself)
+- ✅ Verificar que el proyecto compile antes de hacer commit
