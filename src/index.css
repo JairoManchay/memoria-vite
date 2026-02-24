@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --primary-blue: #1E73D8;
+  --accent-blue: #4DA3FF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scale-in {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.matched-glow {
+  animation: glow 1s ease-in-out;
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+  50% { box-shadow: 0 4px 25px rgba(77, 163, 255, 0.5); }
+}
