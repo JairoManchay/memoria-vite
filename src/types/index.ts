@@ -14,7 +14,6 @@ export interface GameState {
   cards: Card[];
   flippedCards: Card[];
   matchedPairs: number;
-  attempts: number;
   timeLeft: number;
   gameStatus: GameStatus;
   canFlip: boolean;

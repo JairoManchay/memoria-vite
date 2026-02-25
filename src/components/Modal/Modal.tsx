@@ -9,7 +9,7 @@ export default function Modal() {
   const isCompleted = gameStatus === "completed";
 
   if (!isWon) {
-    const timeUsed = 80 - timeLeft;
+    const timeUsed = 75 - timeLeft;
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
@@ -82,7 +82,7 @@ export default function Modal() {
     ? "Tu memoria te llevó a la victoria. Estás a un paso de descubrir tu próximo depa." 
     : "Primera sesión completada";
   const icon = isCompleted ? "🏆" : "🎉";
-  const timeUsed = 80 - timeLeft;
+  const timeUsed = 75 - timeLeft;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md animate-fade-in">

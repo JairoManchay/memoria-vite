@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useGameStore } from '../../store/useGameStore';
-
-const INITIAL_TIME = 80;
+import { INITIAL_TIME } from '../../constants/game';
 
 export default function Timer() {
   const { timeLeft, gameStatus, updateTimer } = useGameStore();

@@ -1,6 +1,4 @@
-export const INITIAL_ATTEMPTS = 12;
-
-export const INITIAL_TIME = 80;
+export const INITIAL_TIME = 75;
 
 export const WINNING_PAIRS = 12;
 

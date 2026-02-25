@@ -107,6 +107,21 @@ CARDS_PER_LEVEL = 24     // Cartas mostradas por nivel
 FLIP_DELAY = 1000        // Ms de espera al voltear carta
 ```
 
+## 3. Cambiar Dificultad del Juego
+
+El archivo: `src/utils/cardUtils.ts`
+
+En la función `generateCardsForLevel`, busca esta línea:
+
+```typescript
+const mezcla = 3; // 1 = fácil, 10 = difícil
+```
+
+**Para aumentar o disminuir la dificultad:**
+- Cambia el número `3`
+- **Más difícil**: aumenta el número (ej: 6, 8, 10)
+- **Más fácil**: disminuye el número (ej: 1, 2)
+
 ---
 
 # Lógica del Juego

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { GameState, GameStatus } from '../types';
-import { INITIAL_ATTEMPTS, INITIAL_TIME, WINNING_PAIRS, FLIP_DELAY } from '../constants/game';
+import { INITIAL_TIME, WINNING_PAIRS, FLIP_DELAY } from '../constants/game';
 import {
   generateCardsForLevel,
   areCardsMatching,
@@ -13,7 +13,6 @@ const getInitialState = () => ({
   cards: [],
   flippedCards: [],
   matchedPairs: 0,
-  attempts: INITIAL_ATTEMPTS,
   timeLeft: INITIAL_TIME,
   gameStatus: 'idle' as GameStatus,
   canFlip: true,
@@ -30,7 +29,6 @@ export const useGameStore = create<GameState>((set, get) => ({
       cards,
       flippedCards: [],
       matchedPairs: 0,
-      attempts: INITIAL_ATTEMPTS,
       timeLeft: INITIAL_TIME,
       gameStatus: 'playing',
       canFlip: true,
@@ -82,8 +80,6 @@ export const useGameStore = create<GameState>((set, get) => ({
           newGameStatus = level >= 2 ? 'completed' : 'won';
         }
 
-
-
         set({
           cards: updatedCards,
           flippedCards: [],
@@ -94,18 +90,11 @@ export const useGameStore = create<GameState>((set, get) => ({
       } else {
         const updatedCards = unflipCard(unflipCard(cards, card1.id), card2.id);
 
-        const newAttempts = get().attempts - 1;
-
         set({
           cards: updatedCards,
           flippedCards: [],
-          attempts: newAttempts,
           canFlip: true,
         });
-
-        if (newAttempts <= 0) {
-          set({ gameStatus: 'lost' });
-        }
       }
     }, FLIP_DELAY);
   },
@@ -143,7 +132,6 @@ export const useGameStore = create<GameState>((set, get) => ({
       cards,
       flippedCards: [],
       matchedPairs: 0,
-      attempts: INITIAL_ATTEMPTS,
       timeLeft: INITIAL_TIME,
       gameStatus: 'playing',
       canFlip: true,

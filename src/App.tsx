@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Header from './components/Header/Header'
 import GameBoard from './components/GameBoard/GameBoard'
 import Timer from './components/Timer/Timer'
-import AttemptsCounter from './components/AttemptsCounter/AttemptsCounter'
 import Modal from './components/Modal/Modal'
 import { useGameStore } from './store/useGameStore'
 
@@ -31,8 +30,6 @@ export default function App() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-12 py-4 relative z-10">
         <GameBoard />
-
-        <AttemptsCounter />
       </main>
 
       <Timer />
