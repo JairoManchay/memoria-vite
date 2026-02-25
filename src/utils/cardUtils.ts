@@ -1,10 +1,9 @@
 import { Card } from '../types';
 import { Property, allProperties } from '../data/properties';
-import { PAIRS_PER_LEVEL } from '../constants/game';
 
 // Variable global para guardar las propiedades usadas en el nivel 1
 // Esto evita que se repitan en el nivel 2
-let level1UsedProperties: number[] = [];
+let level1UsedProperties: Property[] = [];
 
 /**
  * Función para barajar un array
@@ -19,30 +18,6 @@ export function shuffleArray<T>(array: T[]): T[] {
   }
   return shuffled;
 }
-
-/**
- * Obtiene las propiedades disponibles para un nivel
- * Nivel 1: usa todas las propiedades
- * Nivel 2: excluye las propiedades usadas en nivel 1
- */
-export function getPropertiesForLevel(level: number): Property[] {
-  if (level === 1) {
-    return allProperties;
-  } else {
-    // En nivel 2, filtra las propiedades que ya se usaron en nivel 1
-    const newArray = [...allProperties, { name: 'Inmobiliaria 23', image: './logoFeria.jpeg' }]
-    return newArray.filter((_, index) => !level1UsedProperties.includes(index));
-  }
-}
-
-/**
- * Guarda los índices de las propiedades del nivel 1
- * Se usa para no repetirlas en el nivel 2
- */
-export function saveLevel1Properties(pairs: Property[]): void {
-  level1UsedProperties = pairs.map(p => allProperties.indexOf(p));
-}
-
 /**
  * Crea una carta a partir de una propiedad
  */
@@ -72,41 +47,44 @@ export function createCard(property: Property, id: number, isSingle: boolean): C
  * @returns array de 24 cartas
  */
 export function generateCardsForLevel(level: number): Card[] {
-  // Paso 1: Obtener propiedades disponibles
-  const availableProperties = getPropertiesForLevel(level);
-  
-  // Paso 2: Barajar propiedades
-  const shuffled = shuffleArray(availableProperties);
-  
-  // Paso 3: Tomar las primeras 6 para hacer pares (12 cartas)
-  const pairs = shuffled.slice(0, PAIRS_PER_LEVEL);
-  
-  // Paso 4: Guardar las propiedades del nivel 1 para no repetir en nivel 2
+  const shuffled = shuffleArray(allProperties);
+
+  let selected: Property[] = [];
+
   if (level === 1) {
-    saveLevel1Properties(pairs);
+    // 🔹 Nivel 1 → tomar 12 aleatorias
+    selected = shuffled.slice(0, 12);
+
+    // Guardarlas para excluir en nivel 2
+    level1UsedProperties = selected;
+  } else {
+    // 🔹 Nivel 2 → excluir las usadas en nivel 1
+    const remaining = allProperties.filter(
+      prop => !level1UsedProperties.includes(prop)
+    );
+
+    // Aquí deberían quedar 11
+    selected = [...remaining];
+
+    // Agregar FERIA como propiedad extra
+    const feria: Property = {
+      name: "Feria",
+      image: "./logoFeria.jpeg",
+    };
+
+    selected.push(feria);
   }
-  
-  // Paso 5: Tomar 12 para individuales (del índice 6 al 18)
-  const singles = shuffled.slice(PAIRS_PER_LEVEL, PAIRS_PER_LEVEL + 12);
-  
-  // Paso 6: Duplicar los pares para tener 12 cartas de pares
-  const pairCards = [...pairs, ...pairs];
-  
-  // Paso 7: Combinar pares + individuales
-  const allCards = [...pairCards, ...singles];
-  
-  // Paso 8: Barajar todas las cartas
-  const finalCards = shuffleArray(allCards);
-  
-  // Paso 9: Crear objetos de carta con IDs únicos
-  const result: Card[] = [];
-  for (let i = 0; i < finalCards.length; i++) {
-    const prop = finalCards[i];
-    const isSingle = i >= 12; // Las primeras 12 son pares, las demás son individuales
-    result.push(createCard(prop, i, isSingle));
-  }
-  
-  return result;
+
+  // 🔥 Duplicar todas para hacer pares
+  const duplicated = [...selected, ...selected];
+
+  // 🔥 Mezclar
+  const finalCards = shuffleArray(duplicated);
+
+  // 🔥 Crear cartas con IDs únicos
+  return finalCards.map((prop, index) =>
+    createCard(prop, index, false)
+  );
 }
 
 /**
