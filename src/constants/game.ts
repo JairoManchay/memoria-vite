@@ -1,4 +1,4 @@
-export const INITIAL_ATTEMPTS = 80;
+export const INITIAL_ATTEMPTS = 12;
 
 export const INITIAL_TIME = 80;
 

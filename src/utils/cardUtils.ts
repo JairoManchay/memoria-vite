@@ -28,9 +28,11 @@ export function shuffleArray<T>(array: T[]): T[] {
 export function getPropertiesForLevel(level: number): Property[] {
   if (level === 1) {
     return allProperties;
+  } else {
+    // En nivel 2, filtra las propiedades que ya se usaron en nivel 1
+    const newArray = [...allProperties, { name: 'Inmobiliaria 23', image: './logoFeria.jpeg' }]
+    return newArray.filter((_, index) => !level1UsedProperties.includes(index));
   }
-  // En nivel 2, filtra las propiedades que ya se usaron en nivel 1
-  return allProperties.filter((_, index) => !level1UsedProperties.includes(index));
 }
 
 /**

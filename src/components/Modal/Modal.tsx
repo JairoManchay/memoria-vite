@@ -5,7 +5,7 @@ export default function Modal() {
 
   if (gameStatus !== "won" && gameStatus !== "lost" && gameStatus !== "completed") return null;
 
-  const isWon = gameStatus === "won";
+  const isWon = gameStatus === "won" || gameStatus === "completed";
   const isCompleted = gameStatus === "completed";
 
   if (!isWon) {

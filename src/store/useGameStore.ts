@@ -76,12 +76,13 @@ export const useGameStore = create<GameState>((set, get) => ({
         const newMatchedPairs = matchedPairs + 2;
         const { level } = get();
 
-        const newGameStatus: GameStatus =
-          newMatchedPairs >= WINNING_PAIRS
-            ? level >= 2
-              ? 'completed'
-              : 'won'
-            : 'playing';
+        let newGameStatus: GameStatus = 'playing';
+
+        if (newMatchedPairs >= WINNING_PAIRS) {
+          newGameStatus = level >= 2 ? 'completed' : 'won';
+        }
+
+
 
         set({
           cards: updatedCards,
