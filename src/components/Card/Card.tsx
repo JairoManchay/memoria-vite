@@ -71,7 +71,6 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
           <img 
             src={card.image} 
             alt={card.name}
-            className="absolute inset-0 w-full h-full object-cover rounded-xl"
             style={{
               filter: isLevel2 ? 'sepia(0.8) contrast(1.2)' : 'none',
             }}

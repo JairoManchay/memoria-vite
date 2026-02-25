@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useGameStore } from '../../store/useGameStore';
 import Card from '../Card/Card';
 

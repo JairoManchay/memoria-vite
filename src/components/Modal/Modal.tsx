@@ -27,7 +27,7 @@ export default function Modal() {
           </h2>
 
           <p className="text-[#4B5563] text-[22px] sm:text-[30px] mb-9" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400 }}>
-            Estás cerca. Inténtalo otra vez
+            Estás cerca. Inténtalo otra vez.
           </p>
 
           <button
@@ -76,8 +76,8 @@ export default function Modal() {
     );
   }
 
-  const title = "¡Bien Ganaste!";
-  const subtitle = "Primera sesión completada";
+  const title = "¡Felicitaciones!";
+  const subtitle = "Tu memoria te llevó a la victoria. Estás a un paso de descubrir tu próximo depa.";
   const icon = "🎉";
   const timeUsed = 80 - timeLeft;
 
@@ -96,7 +96,7 @@ export default function Modal() {
           {title}
         </h2>
 
-        <p className="text-gray-500 text-3xl sm:text-4xl mb-12">{subtitle}</p>
+        <p className="text-gray-500 text-xxl sm:text-3xl mb-12">{subtitle}</p>
 
         {level === 1 ? (
           <button

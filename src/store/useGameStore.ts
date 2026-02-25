@@ -6,18 +6,34 @@ const INITIAL_TIME = 80;
 const WINNING_PAIRS = 6;
 
 const propertyData = [
-  { name: 'Inmobiliaria 1', image: '/images/OIP.webp', icon: '' },
-  { name: 'Inmobiliaria 2', image: '/images/OIP.webp', icon: '' },
-  { name: 'Inmobiliaria 3', image: '/images/OIP.webp', icon: '' },
-  { name: 'Inmobiliaria 4', image: '/images/OIP.webp', icon: '' },
-  { name: 'Inmobiliaria 5', image: '/images/OIP.webp', icon: '' },
-  { name: 'Inmobiliaria 6', image: '/images/OIP.webp', icon: '' },
-  { name: 'Villa', icon: '🏡' },
-  { name: 'Casa', icon: '🏠' },
-  { name: 'Edificio', icon: '🏗️' },
-  { name: 'Oficina', icon: '🏬' },
-  { name: 'Local', icon: '🏪' },
-  { name: 'Hotel', icon: '🏨' },
+  // 🔁 Estas 6 se repiten
+  { name: 'Inmobiliaria 1', image: "./images/renpau.png"},
+  { name: 'Inmobiliaria 2', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 2.png', icon: '' },
+  { name: 'Inmobiliaria 3', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 3.png', icon: '' },
+  { name: 'Inmobiliaria 4', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 4.png', icon: '' },
+  { name: 'Inmobiliaria 5', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 5.png', icon: '' },
+  { name: 'Inmobiliaria 6', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 6.png', icon: '' },
+
+  { name: 'Inmobiliaria 1', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 1.png', icon: '' },
+  { name: 'Inmobiliaria 2', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 2.png', icon: '' },
+  { name: 'Inmobiliaria 3', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 3.png', icon: '' },
+  { name: 'Inmobiliaria 4', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 4.png', icon: '' },
+  { name: 'Inmobiliaria 5', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 5.png', icon: '' },
+  { name: 'Inmobiliaria 6', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 6.png', icon: '' },
+
+  // ✅ Estas 12 no se repiten
+  { name: 'Inmobiliaria 7', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 7.png', icon: '' },
+  { name: 'Inmobiliaria 8', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 8.png', icon: '' },
+  { name: 'Inmobiliaria 9', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 9.png', icon: '' },
+  { name: 'Inmobiliaria 10', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 10.png', icon: '' },
+  { name: 'Inmobiliaria 11', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 11.png', icon: '' },
+  { name: 'Inmobiliaria 12', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 12.png', icon: '' },
+  { name: 'Inmobiliaria 13', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 13.png', icon: '' },
+  { name: 'Inmobiliaria 14', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 14.png', icon: '' },
+  { name: 'Inmobiliaria 15', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 15.png', icon: '' },
+  { name: 'Inmobiliaria 16', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 16.png', icon: '' },
+  { name: 'Inmobiliaria 17', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 17.png', icon: '' },
+  { name: 'Inmobiliaria 18', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 18.png', icon: '' },
 ];
 
 const shuffleArray = <T>(array: T[]): T[] => {
@@ -40,7 +56,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   level: 1,
 
   initializeGame: () => {
-    const cardPairs = [...propertyData, ...propertyData];
+    const cardPairs = [...propertyData];
     const shuffledCards = shuffleArray(cardPairs).map((card, index) => ({
       id: index,
       name: card.name,
