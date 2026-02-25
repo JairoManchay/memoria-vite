@@ -38,7 +38,7 @@ export default function Timer() {
   }, [gameStatus, updateTimer]);
 
   return (
-    <div className="h-[85px] bg-[#1E73D8] px-10 flex flex-col items-center justify-center border-t-2 border-[#4DA3FF]">
+    <div className="bg-[#1E73D8] px-10 py-10 flex flex-col items-center justify-center border-t-2 border-[#4DA3FF]">
       <div className="w-full max-w-[900px] h-3 bg-white/20 rounded-full mb-2 overflow-hidden">
         <div
           className={`h-full rounded-full transition-all duration-1000 ${getTimerColor()} ${timeLeft <= 20 ? 'animate-pulse' : ''}`}
@@ -46,10 +46,10 @@ export default function Timer() {
         />
       </div>
 
-      <div className="flex items-center gap-3">
-        <span className="text-2xl">⏱</span>
-        <span className="text-white text-xl font-semibold">Tiempo restante:</span>
-        <span className={`text-4xl font-bold min-w-[80px] ${getTextColor()}`}>
+      <div className="flex gap-3 items-center mt-4">
+        <span className="text-5xl text-white">⏱</span>
+        <span className="text-white text-4xl font-semibold uppercase">Tiempo restante:</span>
+        <span className={`text-5xl font-bold min-w-[80px] ${getTextColor()}`}>
           {timeLeft}s
         </span>
       </div>

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
-import { Card, GameState, GameStatus } from '../types';
+import { GameState, GameStatus } from '../types';
 
-const INITIAL_ATTEMPTS = 30;
+const INITIAL_ATTEMPTS = 12;
 const INITIAL_TIME = 80;
 const WINNING_PAIRS = 6;
 

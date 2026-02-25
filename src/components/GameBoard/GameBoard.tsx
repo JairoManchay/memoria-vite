@@ -8,7 +8,7 @@ export default function GameBoard() {
   return (
     <div className={`
       grid gap-2 sm:gap-3 max-w-[960px]
-      grid-cols-3 sm:grid-cols-4 md:grid-cols-6
+      grid-cols-3 sm:grid-cols-4 md:grid-cols-4
       ${gameStatus === 'paused' ? 'opacity-50 pointer-events-none' : ''}
     `}>
       {cards.map((card) => (

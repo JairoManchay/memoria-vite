@@ -18,7 +18,7 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
   return (
     <div
       className={`
-        relative w-[150px] h-[185px] cursor-pointer
+        relative w-[210px] h-[200px] cursor-pointer
         transition-transform duration-500 ease-out
         ${!card.isFlipped && !card.isMatched ? 'hover:-translate-y-1 hover:scale-[1.02]' : ''}
       `}
@@ -50,10 +50,7 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
             backgroundSize: '100% 100%, 20px 20px, 20px 20px',
           }}
         />
-        <span className="text-5xl relative z-10">🏢</span>
-        <span className="absolute bottom-2 bg-black/50 text-white text-[10px] font-semibold px-2 py-1 rounded uppercase tracking-wide">
-          {card.name}
-        </span>
+        <img className='w-44' src="/logo_feria_inmobiliaria.png" alt="" />
         {isLevel2 && (
           <span className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
             NIVEL 2

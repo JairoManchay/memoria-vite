@@ -11,11 +11,11 @@ export default function AttemptsCounter() {
 
   return (
     <div className="mt-3 text-center">
-      <div className="inline-flex items-center gap-3 bg-white/15 rounded-xl px-8 py-2" style={{marginTop: '1.5rem', padding: '0.8rem 1.2rem'}}>
-        <span className="text-white text-xl font-semibold">
+      <div className="flex gap-3 items-center bg-blue-950 shadow-2xl rounded-xl px-14 py-7 mt-10">
+        <span className="text-white text-5xl font-semibold">
           Intentos restantes:
         </span>
-        <span className={`text-4xl font-bold min-w-[50px] text-center transition-colors ${getAttemptsClass()}`}>
+        <span className={`text-5xl font-bold min-w-[50px] text-center transition-colors ${getAttemptsClass()}`}>
           {attempts}
         </span>
       </div>

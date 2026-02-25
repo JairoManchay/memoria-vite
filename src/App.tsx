@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#1E73D8] flex flex-col relative overflow-hidden">
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
@@ -31,7 +31,7 @@ export default function App() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-12 py-4 relative z-10">
         <GameBoard />
-        
+
         <AttemptsCounter />
       </main>
 

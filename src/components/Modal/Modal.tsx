@@ -14,7 +14,7 @@ export default function Modal() {
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
         <div className="bg-white rounded-[20px] p-[70px] text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] w-[60%] max-w-4xl min-h-[600px] flex flex-col items-center justify-center transform scale-95 animate-scale-in">
           <div className="mb-8">
-            <span className="text-[90px] sm:text-[90px] leading-none">
+            <span className="text-[90px] sm:text-[100px] leading-none">
               ⏰
             </span>
           </div>
@@ -26,7 +26,7 @@ export default function Modal() {
             TIEMPO AGOTADO
           </h2>
 
-          <p className="text-[#4B5563] text-[22px] sm:text-[26px] mb-9" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400 }}>
+          <p className="text-[#4B5563] text-[22px] sm:text-[30px] mb-9" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400 }}>
             Estás cerca. Inténtalo otra vez
           </p>
 
@@ -35,8 +35,8 @@ export default function Modal() {
             className="
               bg-[#4DA3FF] hover:bg-[#3d91e6]
               text-white font-semibold
-              text-xl sm:text-2xl
-              py-5 sm:py-[20px] px-20 sm:px-[80px]
+              text-xl sm:text-3xl
+              py-5 sm:py-[20px] px-25 sm:px-[85px]
               rounded-2xl
               uppercase tracking-[0.1em]
               transition-all duration-300
@@ -45,7 +45,7 @@ export default function Modal() {
               hover:shadow-[0_14px_35px_-5px_rgba(77,163,255,0.45)]
               mb-12
             "
-            style={{ fontFamily: 'Montserrat, sans-serif', padding: '1.25rem 1.25rem', marginTop: '2rem' }}
+            style={{ fontFamily: 'Montserrat, sans-serif', padding: '1.4rem 3rem', marginTop: '2rem' }}
           >
             Reiniciar Juego
           </button>
@@ -54,19 +54,19 @@ export default function Modal() {
           style={{marginTop: '2rem'}}
           className="flex justify-center items-stretch gap-20 sm:gap-24 w-full max-w-2xl mt-12">
             <div className="flex-1 text-center py-6 border-r border-gray-200">
-              <div className="text-[40px] sm:text-[48px] font-bold text-[#1E73D8] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
+              <div className="text-[40px] sm:text-[55px] font-bold text-[#1E73D8] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
                 {matchedPairs}/6
               </div>
-              <div className="text-gray-400 text-base uppercase tracking-[0.15em]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <div className="text-gray-400 text-2xl uppercase tracking-[0.15em]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Pares
               </div>
             </div>
 
             <div className="flex-1 text-center py-6">
-              <div className="text-[40px] sm:text-[48px] font-bold text-[#1E73D8] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
+              <div className="text-[40px] sm:text-[55px] font-bold text-[#1E73D8] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
                 {timeUsed}s
               </div>
-              <div className="text-gray-400 text-base uppercase tracking-[0.15em]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <div className="text-gray-400 text-2xl uppercase tracking-[0.15em]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Tiempo
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function Modal() {
               bg-yellow-500 hover:bg-yellow-600
               text-white font-semibold
               text-2xl sm:text-3xl
-              py-6 px-12 sm:px-20
+              py-7 px-12 sm:px-20
               rounded-2xl
               uppercase tracking-[0.1em]
               transition-all duration-300
@@ -143,7 +143,7 @@ export default function Modal() {
             <div className="text-4xl sm:text-5xl font-bold text-[#1E73D8] mb-4">
               {matchedPairs}/6
             </div>
-            <div className="text-gray-400 text-lg uppercase tracking-[0.2em]">
+            <div className="text-gray-400 text-2xl uppercase tracking-[0.2em]">
               Pares
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function Modal() {
             <div className="text-4xl sm:text-5xl font-bold text-[#1E73D8] mb-4">
               {timeUsed}s
             </div>
-            <div className="text-gray-400 text-lg uppercase tracking-[0.2em]">
+            <div className="text-gray-400 text-2xl uppercase tracking-[0.2em]">
               Tiempo
             </div>
           </div>
