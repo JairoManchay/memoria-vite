@@ -50,7 +50,7 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
             backgroundSize: '100% 100%, 20px 20px, 20px 20px',
           }}
         />
-        <img className='w-48' src="/logo_feria_inmobiliaria.png" alt="" />
+        <img className='w-48' src="./logo_feria_inmobiliaria.png" alt="" />
         {isLevel2 && (
           <span className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
             NIVEL 2
