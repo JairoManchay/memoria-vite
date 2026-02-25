@@ -5,9 +5,10 @@ export interface Card {
   image?: string;
   isFlipped: boolean;
   isMatched: boolean;
+  isSingle?: boolean;
 }
 
-export type GameStatus = 'idle' | 'playing' | 'paused' | 'won' | 'lost';
+export type GameStatus = 'idle' | 'playing' | 'paused' | 'won' | 'lost' | 'completed';
 
 export interface GameState {
   cards: Card[];

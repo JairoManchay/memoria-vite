@@ -3,9 +3,10 @@ import { useGameStore } from "../../store/useGameStore";
 export default function Modal() {
   const { gameStatus, matchedPairs, timeLeft, restartGame, nextLevel, level } = useGameStore();
 
-  if (gameStatus !== "won" && gameStatus !== "lost") return null;
+  if (gameStatus !== "won" && gameStatus !== "lost" && gameStatus !== "completed") return null;
 
   const isWon = gameStatus === "won";
+  const isCompleted = gameStatus === "completed";
 
   if (!isWon) {
     const timeUsed = 80 - timeLeft;
@@ -55,7 +56,7 @@ export default function Modal() {
           className="flex justify-center items-stretch gap-20 sm:gap-24 w-full max-w-2xl mt-12">
             <div className="flex-1 text-center py-6 border-r border-gray-200">
               <div className="text-[40px] sm:text-[55px] font-bold text-[#1E73D8] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
-                {matchedPairs}/6
+                {matchedPairs}/12
               </div>
               <div className="text-gray-400 text-2xl uppercase tracking-[0.15em]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Pares
@@ -76,9 +77,11 @@ export default function Modal() {
     );
   }
 
-  const title = "¡Felicitaciones!";
-  const subtitle = "Tu memoria te llevó a la victoria. Estás a un paso de descubrir tu próximo depa.";
-  const icon = "🎉";
+  const title = isCompleted ? "¡Felicitaciones!" : "¡Bien Ganaste!";
+  const subtitle = isCompleted 
+    ? "Tu memoria te llevó a la victoria. Estás a un paso de descubrir tu próximo depa." 
+    : "Primera sesión completada";
+  const icon = isCompleted ? "🏆" : "🎉";
   const timeUsed = 80 - timeLeft;
 
   return (
@@ -91,14 +94,33 @@ export default function Modal() {
         </div>
 
         <h2
-          className={`text-5xl sm:text-6xl font-bold leading-[1.2] mb-8 ${isWon ? "text-green-500" : "text-[#1E73D8]"}`}
+          className={`text-5xl sm:text-6xl font-bold leading-[1.2] mb-8 ${isCompleted ? "text-yellow-500" : isWon ? "text-green-500" : "text-[#1E73D8]"}`}
         >
           {title}
         </h2>
 
         <p className="text-gray-500 text-xxl sm:text-3xl mb-12">{subtitle}</p>
 
-        {level === 1 ? (
+        {isCompleted ? (
+          <button
+            onClick={restartGame}
+            className="
+              bg-green-500 hover:bg-green-600
+              text-white font-semibold
+              text-2xl sm:text-3xl
+              py-6 px-12 sm:px-20
+              rounded-2xl
+              uppercase tracking-[0.1em]
+              transition-all duration-300
+              shadow-lg
+              hover:-translate-y-1
+              hover:shadow-[0_14px_35px_-5px_rgba(34,197,94,0.45)]
+              mb-6
+            "
+          >
+            Volver a Jugar
+          </button>
+        ) : level === 1 ? (
           <button
             onClick={nextLevel}
             className="
@@ -141,7 +163,7 @@ export default function Modal() {
         <div style={{marginTop: '5rem'}} className="flex justify-center items-stretch gap-24 w-full max-w-2xl mt-12">
           <div className="flex-1 text-center py-6 border-r border-gray-200">
             <div className="text-4xl sm:text-5xl font-bold text-[#1E73D8] mb-4">
-              {matchedPairs}/6
+              {matchedPairs}/12
             </div>
             <div className="text-gray-400 text-2xl uppercase tracking-[0.2em]">
               Pares

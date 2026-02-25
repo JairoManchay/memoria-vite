@@ -18,7 +18,7 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
   return (
     <div
       className={`
-        relative w-[210px] h-[200px] cursor-pointer
+        relative w-[160px] h-[150px] cursor-pointer
         transition-transform duration-500 ease-out
         ${!card.isFlipped && !card.isMatched ? 'hover:-translate-y-1 hover:scale-[1.02]' : ''}
       `}
@@ -50,7 +50,7 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
             backgroundSize: '100% 100%, 20px 20px, 20px 20px',
           }}
         />
-        <img className='w-44' src="/logo_feria_inmobiliaria.png" alt="" />
+        <img className='w-32' src="/logo_feria_inmobiliaria.png" alt="" />
         {isLevel2 && (
           <span className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
             NIVEL 2
@@ -71,9 +71,7 @@ export default function Card({ card, onFlip, level = 1 }: CardProps) {
           <img 
             src={card.image} 
             alt={card.name}
-            style={{
-              filter: isLevel2 ? 'sepia(0.8) contrast(1.2)' : 'none',
-            }}
+            className="w-full h-full object-contain"
           />
         ) : card.icon ? (
           <div className="flex flex-col items-center justify-center w-full h-full bg-gray-100 rounded-xl">

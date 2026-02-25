@@ -5,7 +5,7 @@ const INITIAL_TIME = 80;
 
 export default function Timer() {
   const { timeLeft, gameStatus, updateTimer } = useGameStore();
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
 
   const percentage = (timeLeft / INITIAL_TIME) * 100;
 
