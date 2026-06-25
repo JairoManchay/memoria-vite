@@ -12,7 +12,7 @@ export default function App() {
     if (gameStatus === 'idle') {
       initializeGame()
     }
-  }, [])
+  }, [gameStatus, initializeGame])
 
   return (
     <div className="min-h-screen bg-[#1E73D8] flex flex-col relative overflow-hidden">

@@ -27,5 +27,5 @@ export const allProperties: Property[] = [
   { name: 'Inmobiliaria 20', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 20.png' },
   { name: 'Inmobiliaria 21', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 21.png' },
   { name: 'Inmobiliaria 22', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO_Mesa de trabajo 22.png' },
-  { name: 'Inmobiliaria 23', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO-23.png' }
+  { name: 'Inmobiliaria 23', image: './images/LOGOS INMOBILIARIAS III EDICIÓN_JUEGO-23.png' },
 ];

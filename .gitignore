@@ -24,6 +24,12 @@
 .DS_Store
 *.pem
 
+# local-only Claude Code agents
+/.claude/agents/
+/.agents/
+CLAUDE.md
+AGENTS.md
+
 # debug
 npm-debug.log*
 yarn-debug.log*
