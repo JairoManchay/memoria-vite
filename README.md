@@ -1,43 +1,56 @@
 # Memoria - Juego de Memoria Inmobiliaria
 
-Juego de memoria desarrollado con React + Vite + TypeScript + Tailwind CSS.
+## ¿De qué trata el juego?
 
-## Características del Proyecto
+Es un juego de memoria (encontrar pares de cartas iguales) pensado para una expoferia inmobiliaria. El jugador voltea cartas de un tablero de 24 para encontrar parejas de logos de inmobiliarias dentro de un tiempo y un número de intentos limitados. Tiene dos niveles: al completar los pares del nivel 1 se avanza al nivel 2 con un set de propiedades distinto, y al completar ambos niveles se gana el juego. Incluye modal de victoria (con opción de pasar de nivel) y modal de derrota (con opción de reiniciar).
 
-- **Stack**: React 19 + Vite 6 + TypeScript + Tailwind CSS v4
-- **Gestión de estado**: Zustand
-- **Responsivo**: Diseño adaptativo para diferentes tamaños de pantalla
-- **Dos niveles**: Nivel 1 y Nivel 2 con diferenciación visual
-- **Sistema de juego**: 
-  - 24 cartas por nivel (4x6 grid)
-  - 6 pares winners + 12 individuales
-  - Modal de victoria con opción de siguiente nivel
-  - Modal de derrota con reinicio
+## Tecnologías que se usaron
 
-## Requisitos
+- **React 19** + **TypeScript** — UI y lógica de componentes
+- **Vite 6** — bundler y dev server
+- **Tailwind CSS v4** — estilos
+- **Zustand** — gestión del estado global del juego
+- **Electron** + **electron-builder** — empaquetado de la app como ejecutable de escritorio (`.exe`)
+- **ESLint** (`typescript-eslint`, `eslint-plugin-react-hooks`) — linting
 
-- Node.js 18+ 
-- npm
-
-## Instalación
+## Cómo levantar el proyecto
 
 ```bash
 npm install
-```
-
-## Levantar el proyecto
-
-```bash
 npm run dev
 ```
 
 El proyecto se abrirá en: http://localhost:5173
 
-## Construir para producción
+Para previsualizar el build de producción en el navegador (sin Electron):
 
 ```bash
 npm run build
+npm run preview
 ```
+
+## Cómo generar el .exe
+
+1. Compilar el proyecto web:
+   ```bash
+   npm run build
+   ```
+2. Empaquetar la app de escritorio con Electron:
+   ```bash
+   npm run dist
+   ```
+3. El instalable queda en `dist-electron/Memoria Game <versión>.exe` (build portable para Windows x64). Ese es el archivo que se entrega.
+
+> `npm run start` levanta la app de Electron en modo desarrollo (usa `main.js` directamente) sin generar el `.exe`, útil solo para probar el empaquetado de escritorio rápido.
+
+## Nomenclatura para hacer commits
+
+Mensajes en inglés, formato `<tipo>: <descripción breve>`:
+
+- `feat: <qué funcionalidad nueva se agregó>` — nuevas funcionalidades del juego o la app.
+- `chore: <qué se configuró o mantuvo>` — configuración, dependencias, assets, build, lint, etc. (sin agregar funcionalidad nueva).
+
+Ramas: `feature/<nombre-corto-en-ingles>` (ej. `feature/new-images`).
 
 ---
 
