@@ -1,5 +1,5 @@
 import { Card } from '../types';
-import { Property, allProperties } from '../data/properties';
+import { Property, allProperties, feriaProperty } from '../data/properties';
 
 // Variable global para guardar las propiedades usadas en el nivel 1
 // Esto evita que se repitan en el nivel 2
@@ -63,16 +63,9 @@ export function generateCardsForLevel(level: number): Card[] {
       prop => !level1UsedProperties.includes(prop)
     );
 
-    // Aquí deberían quedar 11
-    selected = [...remaining];
-
-    // Agregar FERIA como propiedad extra
-    const feria: Property = {
-      name: "Feria",
-      image: "./logoFeria.jpeg",
-    };
-
-    selected.push(feria);
+    // Tomar 11 de las restantes y agregar FERIA como propiedad extra
+    selected = shuffleArray(remaining).slice(0, 11);
+    selected.push(feriaProperty);
   }
 
   // 🔥 Duplicar todas para hacer pares
