@@ -12,7 +12,8 @@
     "start": "electron .",
     "dist": "electron-builder",
     "android:sync": "npm run build && cap sync android",
-    "android:apk": "npm run android:sync && cd android && .\\gradlew.bat assembleDebug"
+    "android:apk": "npm run android:sync && cd android && .\\gradlew.bat assembleDebug",
+    "android:release": "npm run android:sync && cd android && .\\gradlew.bat assembleRelease"
   },
   "build": {
     "appId": "com.memoria.app",
